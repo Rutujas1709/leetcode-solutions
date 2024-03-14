@@ -1,0 +1,20 @@
+class Solution:
+    def mergeAlternately(self, word1: str, word2: str) -> str:
+        s1 = len(word1)
+        s2 = len(word2)
+        merged = ''
+        i=0
+        if s1 > s2:
+            length = s2
+            ext = word1[length:]
+        else: 
+            length = s1
+            ext = word2[length:]
+        while i < length:
+            merged = merged + word1[i] + word2[i]
+            
+            i = i+1
+            
+        merged = merged + ext
+
+        return merged       
