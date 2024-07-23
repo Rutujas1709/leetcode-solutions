@@ -1,0 +1,12 @@
+class Solution(object):
+    def maximumOddBinaryNumber(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+        count_ones = s.count("1")
+        if count_ones == 0:
+            return ""
+        return "1" * (count_ones - 1) + (len(s) - count_ones) * "0" + "1"
+
+        
