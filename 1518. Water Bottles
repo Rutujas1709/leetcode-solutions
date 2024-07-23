@@ -1,0 +1,21 @@
+class Solution(object):
+    def numWaterBottles(self, numBottles, numExchange):
+        """
+        :type numBottles: int
+        :type numExchange: int
+        :rtype: int
+        """
+
+        #return the number of bottels which in complete count is full/ you will drink
+        #add numBottles + full bottles you get with each pass(numExchnage)
+        #numBottles/ numExchange = int(value) add the value to numBottles and divide by numexchange
+
+        total_drunk = numBottles  # Initially, you drink all the full bottles you have
+        empty_bottles = numBottles
+        
+        while empty_bottles >= numExchange:
+            new_bottles = empty_bottles // numExchange  # Number of new full bottles you get by exchanging
+            total_drunk += new_bottles  # Add these to the total count of drunk bottles
+            empty_bottles = empty_bottles % numExchange + new_bottles  # Remaining empty bottles + new full bottles
+        
+        return total_drunk
